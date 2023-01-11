@@ -1,36 +1,45 @@
 <?php
+// Include class definition
+require "Profile.php";
 
-class User 
+class User extends Profile
 {
     public $name; 
     public $email;
     public $phone;
-    public $profile = [];
+    
+    // public function __construct()
+    // {
 
-    public function setName($nam)
+    // }
+
+    //set function
+
+    public function setName($name)
     {
-        $this->name = $nam;
+        $this->name = $name;
     }
 
-    public function setEmail($ema)
+    public function setEmail($email)
     {
-        $this->name = $ema;
+        $this->email = $email;
     }
 
+    public function setPhone($phone)
+    {
+        $this->phone =$phone;
+    }
+    
     public function getName()
     {
-        echo ($this->name);
+        echo($this->name);
     }
+
+    // get function
     
     public function getEmail()
     {
        echo($this->email);
-    }
-
-    public function setPhone($phn)
-    {
-        $this->phone =$phn;
-
     }
 
     public function getPhone()
@@ -38,34 +47,26 @@ class User
         echo($this->phone);
     }
 
-    public function setProfile($add, $img)
-    {
-        $this->profile['address'] = $add;
-        $this->profile['img'] = $img;
-    }
-
-    public function getProfile()
-    {
-        // $this->profile['address'] = $this->address;
-        // $this->profile['img'] = $this->img;
-        
-        echo('Addreess :' .$this->profile['address'].' Image: '.$this->profile['img']);
-    }
 
 }
 
-$user = new User;
-$user->setName('Alauddin');
-$user->getName();
-
-$user->email = 'email@gmail.com';
-$user->getEmail();
-
-$user->setPhone('01700000000');
-$user->getPhone();
-
-$user->setProfile('Mathbaria', 'img.png');
-$user->getProfile();
+$xyz = new User;
+$xyz->setAddress('Dhaka');
+$xyz->getAddress();
 
 
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $user = new User;
+//     $user->setName($_POST['name']);
+//     $user->getName();
+
+//     $user->setEmail($_POST['email']);
+//     $user->getEmail();
+//     $user->setPhone($_POST['phone']);
+//     $user->getPhone();
+//     $user->setAddress($_POST['address']);
+//     $user->getAddress();
+//     $user->setImage($_POST['image']);
+//     $user->getImage();
+// }
 ?>
